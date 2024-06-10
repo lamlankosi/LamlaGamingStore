@@ -42,11 +42,11 @@ footer{
  }
 
 /* images*/
-/* img{
+img{
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-}  */
+} 
 
 .navbar{
 
@@ -125,3 +125,13 @@ img {
     background-color: #717171;
 }
 /* yey */
+
+[GStore]{
+    margin-left: 140px;
+    gap: 3rem;
+    margin-bottom: 1rem;
+}
+
+[AddCart]{
+    padding: auto;
+}
