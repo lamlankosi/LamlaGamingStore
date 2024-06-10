@@ -31,6 +31,8 @@ header{
     color: var(--text-100);
 }
 
+
+
 footer{
     background-color: var(--bg-200);
     color: var(--text-100);
@@ -40,11 +42,11 @@ footer{
  }
 
 /* images*/
-img{
+/* img{
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-} 
+}  */
 
 .navbar{
 
@@ -66,12 +68,12 @@ img{
 }
 
 .mySlides {
-    margin-inline: 6.5rem;
+    margin-inline: 9rem;
     display: none;
 }
 
 .mySlides img {
-    width: 788px;
+    width: 700px;
     height: 444px
 }
 
