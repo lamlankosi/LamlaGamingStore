@@ -26,17 +26,25 @@ body{
     font-family: helvetica;
 }
 
-header , footer {
+header{
     background-color: var(--bg-200);
     color: var(--text-100);
 }
 
-/* images */
+footer{
+    background-color: var(--bg-200);
+    color: var(--text-100);
+    padding: 10px 20px;
+    height: 80px;
+    text-align: center;
+ }
+
+/* images*/
 img{
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-}
+} 
 
 .navbar{
 
@@ -58,12 +66,20 @@ img{
 }
 
 .mySlides {
+    margin-inline: 6.5rem;
     display: none;
+}
+
+.mySlides img {
+    width: 788px;
+    height: 444px
 }
 
 img {
     vertical-align: middle;
 }
+
+
 
 .prev, .next {
     cursor: pointer;
@@ -104,12 +120,3 @@ img {
     background-color: #717171;
 }
 
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-}
