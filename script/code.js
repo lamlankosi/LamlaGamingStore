@@ -32,7 +32,7 @@ let myProducts =
                 id: 1,
                 productName: "PlayStation 5 Slim Console with disc drive (PS5 Slim)",
                 category: "Console",
-                description: "Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback",
+                description: "Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback.Sleek new slim design.",
                 amount: 12648.00,
                 img_url: "https://lamlankosi.github.io/eCommerce-Images/PS5-Slim.jpg"
               },
@@ -40,7 +40,7 @@ let myProducts =
                 id: 2,
                 productName: "Xbox Series S 1TB Console",
                 category: "Console",
-                description: "All digital console. Faster loading times with the custom SSD. ",
+                description: "Faster loading times with the custom SSD.Join the fun and play a large selection of engaging free-to-play games on Xbox.Gaming Resolution : 1440p",
                 amount: 8300.00,
                 img_url: "https://lamlankosi.github.io/eCommerce-Images/67fb575e-0693-4cc6-aff7-4884483283cc.jpg"
               },
@@ -48,7 +48,7 @@ let myProducts =
                 id: 3,
                 productName: "PLAYSTATION PS5 DUALSENSE - GLACIER WHITE",
                 category: "Controller",
-                description: "Discover a deeper, highly immersive gaming experience1 that brings the action to life in the palms of your hands. ",
+                description: "Discover a deeper, highly immersive gaming experience1 that brings the action to life in the palms of your hands.Charge and play with a built-in battery  ",
                 amount: 1300.00,
                 img_url: "https://lamlankosi.github.io/eCommerce-Images/controller.jpg"
               },
@@ -56,7 +56,7 @@ let myProducts =
                 id: 4,
                 productName: "PLAYSTATION PS5 DUALSENSE - Fibre Aqua (LIMITED EDITION)",
                 category: "Controller",
-                description: "Experience varying levels of force and tension as you interact with your in-game gear and environments. ",
+                description: "Experience varying levels of force and tension as you interact with your in-game gear and environments.",
                 amount: 3600.00,
                 img_url: "https://lamlankosi.github.io/eCommerce-Images/ps5Limited.png"
               },
@@ -64,7 +64,7 @@ let myProducts =
                 id: 5,
                 productName: "God Of War Ragnarok (PS5)",
                 category: "compact disc",
-                description: "Comfort blue tshirt duplicate of jayz limited edition",
+                description: "Embark on an epic and heartfelt journey as Kratos and Atreus struggle with holding on and letting go. Venture Through All Nine Realms.",
                 amount: 567.00,
                 img_url: "https://lamlankosi.github.io/eCommerce-Images/God-Of-War-Ragnarok-Playstation-5.png"
                 },
@@ -72,7 +72,7 @@ let myProducts =
                 id: 6,
                 productName: "EA Sports FC24 (PS5)",
                 category: "compact disc",
-                description: "EA SPORTS FC 24 is a new era for The World's Game: 19,000+ fully licensed players, 700+ teams, and 30+ leagues",
+                description: "EA SPORTS FC 24 ushers in a new era with 19,000+ licensed players, 700+ teams, and 30+ leagues, offering an innovative and authentic gaming experience.",
                 amount: 580.00,
                 img_url: "https://lamlankosi.github.io/eCommerce-Images/FC24.jpg"
                 },
@@ -95,3 +95,8 @@ let myProducts =
               
             ]
           ))
+
+//checkout
+let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
+    ? JSON.parse(localStorage.getItem('checkout'))
+    : []
