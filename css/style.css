@@ -42,11 +42,11 @@ footer{
  }
 
 /* images*/
-img{
+/* img{
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-} 
+}  */
 
 .navbar{
 
@@ -129,9 +129,31 @@ img {
 [GStore]{
     margin-left: 140px;
     gap: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 [AddCart]{
     padding: auto;
+}
+
+#products{
+    background-color: #56647b;
+    color: white;
+    & img {
+        margin-top: 2rem;
+        width: 258px;
+        height: 258px;
+    }
+}
+
+
+@media screen and (width < 768px) {
+
+    :is(.col) {
+        padding-block: .2rem;
+
+        & button {
+            width: 100%;
+        }
+    }
 }
