@@ -16,13 +16,14 @@ try{
         
     });
 } catch (e) {
-    console.log();
+    console.log(e);
 }
 //checkout
 let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
     ? JSON.parse(localStorage.getItem('checkout'))
     : []
 
+    
 function Cart(product) {
     try {
         checkoutItems.push(product)
@@ -35,3 +36,23 @@ function Cart(product) {
 window.onload = () => {
     document.querySelector('[counter]').textContent = checkoutItems.length || 0
 }
+try {
+    let products = JSON.parse(localStorage.getItem('myProducts'));
+    displayProducts(products);
+
+    document.querySelector('[searchBar]').addEventListener('input', function() {
+        let searchQuery = this.value.toLowerCase();
+        let filteredProducts = products.filter(product => product.productName.toLowerCase().includes(searchQuery));
+        displayProducts(filteredProducts);
+    });
+    
+    // Sort 
+    document.querySelector('[sortButton]').addEventListener('click', function() {
+        let sortedProducts = products.sort((a, b) => a.category.localeCompare(b.category));
+        displayProducts(sortedProducts);
+   
+    });
+} catch (e) {
+    console.log(e);
+}
+
