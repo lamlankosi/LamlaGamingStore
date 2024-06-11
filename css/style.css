@@ -137,6 +137,7 @@ img {
 }
 
 #products{
+    margin-left: 2rem;
     background-color: #56647b;
     color: white;
     & img {
@@ -145,6 +146,7 @@ img {
         height: 258px;
     }
 }
+
 
 
 
@@ -189,3 +191,5 @@ button:hover {
     width:fit-content;
     height: 40px;
 }
+
+
