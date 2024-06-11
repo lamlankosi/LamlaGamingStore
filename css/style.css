@@ -137,6 +137,7 @@ img {
 }
 
 #products{
+    margin-left: 2rem;
     background-color: #56647b;
     color: white;
     & img {
@@ -146,14 +147,3 @@ img {
     }
 }
 
-
-@media screen and (width < 768px) {
-
-    :is(.col) {
-        padding-block: .2rem;
-
-        & button {
-            width: 100%;
-        }
-    }
-}
