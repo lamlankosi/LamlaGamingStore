@@ -127,7 +127,7 @@ img {
 /* yey */
 
 [GStore]{
-    margin-left: 140px;
+    margin-left: 70px;
     gap: 3rem;
     margin-bottom: 3rem;
 }
@@ -189,7 +189,11 @@ button:hover {
 
 #sortButton{
     width:fit-content;
-    height: 40px;
+    height: 35px;
+}
+[clearButton]{
+    width:fit-content;
+    height: 35px;
 }
 
 
