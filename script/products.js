@@ -13,7 +13,7 @@ try {
                         <h5 class="card-title">${product.productName}</h5>
                         <p class="card-text">${product.description}</p>
                         <p class="card-text">R${product.amount}.00</p>
-                        <a href="#" class="btn btn-primary" onclick="Cart()">Add to Cart</a>
+                        <a href="../html/checkout.html" class="btn btn-primary" onclick="Cart()">Add to Cart</a>
                     </div>
                 </div>`;
         });
@@ -37,22 +37,22 @@ try {
 }
 
 //checkout
-let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
+let checkOutItems = JSON.parse(localStorage.getItem('checkout'))
     ? JSON.parse(localStorage.getItem('checkout'))
     : []
 
     
 function Cart(product) {
     try {
-        checkoutItems.push(product)
-        localStorage.setItem('checkout', JSON.stringify(checkoutItems))
-        document.querySelector('[counter]').textContent = checkoutItems.length || 0
+        checkOutItems.push(product)
+        localStorage.setItem('checkout', JSON.stringify(checkOutItems))
+        document.querySelector('[counter]').textContent = checkOutItems.length || 0
     } catch (e) {
         alert("Try again or contact our administrator")
     }
 } 
 window.onload = () => {
-    document.querySelector('[counter]').textContent = checkoutItems.length || 0
+    document.querySelector('[counter]').textContent = checkOutItems.length || 0
 }
 try{
     let products = JSON.parse(localStorage.getItem('myProducts'));
@@ -65,5 +65,16 @@ try{
 } catch (e){
     console.log('please contact our administrator');
 }
+
+function clearCart() {
+    try {
+        checkOutItems = [];
+        localStorage.removeItem('checkout'); 
+        document.querySelector('[counter]').textContent = 0; 
+    } catch (e) {
+        alert("Try again or contact our administrator");
+    }
+}
+
 
 
