@@ -58,25 +58,41 @@
             <h2 class="row gap-2 justify-content-center">Checkout</h2>
         </div>
        
-          <div class="container">
-            <h1>Shopping Cart</h1>
-            <table class="table">
-                <thead>
-                    <tr>
-                        
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Image</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="cartTableBody"></tbody>
-            </table>
-            <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
-            <div>Cart Items: <span counter>0</span></div>
-        </div>
+        <div class="container">
+          <table class="table" cartTable>
+              <thead>
+                  <tr>
+                      
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Image</th>
+                      <th>Description</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Action</th>
+                      </tr>
+                      </thead>
+                      <tbody cartTableBody></tbody>
+                      </table>
+                        <div class="d-flex justify-content-between" >
+                          <button class="btn btn-danger" onclick="clearCart()" id="clear">Clear Cart</button>
+                          <button class="btn btn-success" onclick="purchaseItems()" id="buy">Purchase</button>
+                          
+                        </div>
+                        <div class="prices">
+                          <div>
+                            Total Price: <span totalPrice>R0.00</span>
+                          </div>
+                          <div>Cart Items: <span counter>0</span></div>
+                        </div>
+
+
+
+
+
+
+
+      </div>
   
     </main>
 

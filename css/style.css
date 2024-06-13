@@ -196,4 +196,21 @@ button:hover {
     height: 35px;
 }
 
+.container{
+    margin-bottom: 10rem;
+}
 
+
+#clear{
+    width: 10rem;
+   
+}
+
+#buy{
+    width: 10rem;
+}
+
+.prices{
+    
+    text-align: center;
+}
