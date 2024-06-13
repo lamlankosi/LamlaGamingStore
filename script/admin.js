@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         products.push(newProduct);
         localStorage.setItem('myProducts', JSON.stringify(products));
         displayProducts();
+        $('#productModal').modal('hide');
         productForm.reset();
     }
 
