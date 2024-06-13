@@ -23,4 +23,4 @@ let checkOutItems = JSON.parse(localStorage.getItem('checkout'))
     
         displayTable(products);
     });
-    
+
