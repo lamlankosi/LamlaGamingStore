@@ -1,55 +1,108 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let products = JSON.parse(localStorage.getItem('myProducts')) || [];
-    let productForm = document.getElementById('productForm');
-    let productTableBody = document.getElementById('productTableBody');
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        let products = JSON.parse(localStorage.getItem('myProducts')) || [];
+        let productForm = document.querySelector('#productForm');
+        let productTableBody = document.querySelector('#productTableBody');
+        let productIdInput = document.querySelector('#productId');
 
-    function displayProducts() {
-        productTableBody.innerHTML = '';
-        products.forEach((product, index) => {
-            productTableBody.innerHTML += `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>${product.productName}</td>
-                    <td>${product.category}</td>
-                    <td><img src="${product.img_url}" alt="product image" style="width: 50px; height: 50px;"></td>
-                    <td>${product.description}</td>
-                    <td>R${product.amount}.00</td>
-                    <td><button class="btn btn-danger" onclick="removeProduct(${index})">Remove</button></td>
-                </tr>
-            `;
+        function displayProducts() {
+            productTableBody.innerHTML = '';
+            products.forEach(function(product, index) {
+                productTableBody.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${product.productName}</td>
+                        <td>${product.category}</td>
+                        <td><img src="${product.img_url}" alt="product image" style="width: 50px; height: 50px;"></td>
+                        <td>${product.description}</td>
+                        <td>R${product.amount}.00</td>
+                        <td>
+                            <div class="addRemoveButton">
+                                <button class="btn bg-success" data-index="${index}" data-action="edit">Edit</button>
+                                <button class="btn bg-danger" data-index="${index}" data-action="remove">Remove</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function addProduct(event) {
+            event.preventDefault();
+            let newProduct = {
+                id: productIdInput.value ? parseInt(productIdInput.value) : (products.length ? products[products.length - 1].id + 1 : 1),
+                productName: document.querySelector('#productName').value,
+                category: document.querySelector('#productCategory').value,
+                img_url: document.querySelector('#productImage').value,
+                description: document.querySelector('#productDescription').value,
+                amount: document.querySelector('#productAmount').value
+            };
+
+            if (productIdInput.value) {
+                let index = products.findIndex(p => p.id === parseInt(productIdInput.value));
+                if (index !== -1) {
+                    products[index] = newProduct;
+                } else {
+                    throw new Error('Product ID not found.');
+                }
+            } else {
+                products.push(newProduct);
+            }
+
+            localStorage.setItem('myProducts', JSON.stringify(products));
+            displayProducts();
+            let modal = new bootstrap.Modal(document.querySelector('#productModal'));
+            modal.hide();
+            productForm.reset();
+        }
+
+        function editProduct(index) {
+            let product = products[index];
+            if (product) {
+                productIdInput.value = product.id;
+                document.querySelector('#productName').value = product.productName;
+                document.querySelector('#productCategory').value = product.category;
+                document.querySelector('#productImage').value = product.img_url;
+                document.querySelector('#productDescription').value = product.description;
+                document.querySelector('#productAmount').value = product.amount;
+
+                let modal = new bootstrap.Modal(document.querySelector('#productModal'));
+                modal.show();
+            } else {
+                throw new Error('Product not found for editing.');
+            }
+        }
+
+        function removeProduct(index) {
+            if (index >= 0 && index < products.length) {
+                products.splice(index, 1);
+                localStorage.setItem('myProducts', JSON.stringify(products));
+                displayProducts();
+            } else {
+                throw new Error('Invalid index for product removal.');
+            }
+        }
+
+        // edit and remove buttons
+        productTableBody.addEventListener('click', function(event) {
+            let target = event.target;
+            if (target.tagName === 'BUTTON') {
+                let index = parseInt(target.getAttribute('data-index'));
+                let action = target.getAttribute('data-action');
+                if (action === 'edit') {
+                    editProduct(index);
+                } else if (action === 'remove') {
+                    removeProduct(index);
+                }
+            }
         });
-    }
 
-    function addProduct(event) {
-        event.preventDefault();
-        let newProduct = {
-            id: products.length ? products[products.length - 1].id + 1 : 1,
-            productName: document.getElementById('productName').value,
-            category: document.getElementById('productCategory').value,
-            img_url: document.getElementById('productImage').value,
-            description: document.getElementById('productDescription').value,
-            amount: document.getElementById('productAmount').value
-        };
+       
+        productForm.addEventListener('submit', addProduct);
 
-        products.push(newProduct);
-        localStorage.setItem('myProducts', JSON.stringify(products));
         displayProducts();
-        let modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
-        modal.hide();
-        productForm.reset();
+    } catch (e) {
+        console.log('Error occurred:', e.message);
+        
     }
-
-    function removeProduct(index) {
-        products.splice(index, 1);
-        localStorage.setItem('myProducts', JSON.stringify(products));
-        displayProducts();
-    }
-
-    // Expose removeProduct to global scope for inline event handlers
-    window.removeProduct = removeProduct;
-
-    // Event listener for form submission
-    productForm.addEventListener('submit', addProduct);
-
-    displayProducts();
 });
