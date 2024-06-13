@@ -57,22 +57,27 @@
         <div class="row">
             <h2 class="row gap-2 justify-content-center">Checkout</h2>
         </div>
-          <div id="checkoutTable" checkoutTable>
-            <table class='table'>
+       
+          <div class="container">
+            <h1>Shopping Cart</h1>
+            <table class="table">
                 <thead>
                     <tr>
+                        
                         <th>Product Name</th>
                         <th>Category</th>
-                        <th>Images</th>
+                        <th>Image</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Quantity</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody id="cartTableBody"></tbody>
             </table>
-          </div>
-        
+            <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+            <div>Cart Items: <span counter>0</span></div>
+        </div>
+  
     </main>
 
     <footer>
