@@ -214,3 +214,8 @@ button:hover {
     
     text-align: center;
 }
+
+
+.addRemoveButton{
+    gap: 3rem;
+}
