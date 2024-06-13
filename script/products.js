@@ -44,6 +44,7 @@ try {
         }
     }
 
+
     window.onload = () => {
         document.querySelector('[counter]').textContent = checkOutItems.length || 0;
     };
@@ -51,6 +52,10 @@ try {
     // Event listener for sorting products
     document.getElementById('sortButton').addEventListener('click', function() {
         let sortedProducts = products.sort((a, b) => a.category.localeCompare(b.category));
+
+    document.querySelector('[Sort]').addEventListener('click', function() {
+        let sortedProducts = products.sort((a, b) => a.productName.localeCompare(b.productName));
+
         displayProducts(sortedProducts);
     });
 

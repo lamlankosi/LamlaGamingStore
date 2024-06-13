@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td><button class="btn btn-danger" onclick="removeFromCart(${index})">Remove</i></button></td>
                     </tr>
                 `;
+
             }
         });
     }
@@ -43,3 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     displayCartItems();
 });
+
+            });
+        }
+    
+        displayTable(products);
+    });
+
+
