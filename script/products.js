@@ -59,7 +59,7 @@ try{
     displayProducts(products);
 
     document.querySelector('[Sort]').addEventListener('click', function() {
-        let sortedProducts = products.sort((a, b) => a.category.localeCompare(b.category));
+        let sortedProducts = products.sort((a, b) => a.productName.localeCompare(b.productName));
         displayProducts(sortedProducts);
     });
 } catch (e){
