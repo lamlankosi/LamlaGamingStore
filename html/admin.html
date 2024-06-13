@@ -52,71 +52,66 @@
             </nav>
     </header>
 
-    <main class="container-fluid">
-        <div class="row">
-            <h2 class="row gap-2 justify-content-center">Admin</h2>
-        </div>
+    <div class="container">
+      <h1>Admin Panel</h1>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#productModal" onclick="openAddModal()">Add New</button>
 
-        <div class="container">
-          <h1>Admin Panel</h1>
-          <button class="btn btn-primary" data-toggle="modal" data-target="#productModal">Add New</button>
-  
-          <!-- Product Modal -->
-          <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="productModalLabel">Add New Product</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-                      <div class="modal-body">
-                          <form id="productForm">
-                              <div class="form-group">
-                                  <label for="productName">Product Name</label>
-                                  <input type="text" class="form-control" id="productName" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="productCategory">Category</label>
-                                  <input type="text" class="form-control" id="productCategory" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="productImage">Image URL</label>
-                                  <input type="url" class="form-control" id="productImage" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="productDescription">Description</label>
-                                  <textarea class="form-control" id="productDescription" required></textarea>
-                              </div>
-                              <div class="form-group">
-                                  <label for="productAmount">Amount</label>
-                                  <input type="number" class="form-control" id="productAmount" required>
-                              </div>
-                              <button type="submit" class="btn btn-primary mt-3">Add Product</button>
-                          </form>
-                      </div>
+      <!-- Product Modal -->
+      <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="productModalLabel">Add New Product</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="productForm">
+                          <input type="hidden" id="productId">
+                          <div class="form-group">
+                              <label for="productName">Product Name</label>
+                              <input type="text" class="form-control" id="productName" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="productCategory">Category</label>
+                              <input type="text" class="form-control" id="productCategory" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="productImage">Image URL</label>
+                              <input type="url" class="form-control" id="productImage" required>
+                          </div>
+                          <div class="form-group">
+                              <label for="productDescription">Description</label>
+                              <textarea class="form-control" id="productDescription" required></textarea>
+                          </div>
+                          <div class="form-group">
+                              <label for="productAmount">Amount</label>
+                              <input type="number" class="form-control" id="productAmount" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary mt-3">Save Product</button>
+                      </form>
                   </div>
               </div>
           </div>
-  
-          <h2 class="mt-5">Products</h2>
-          <table class="table">
-              <thead>
-                  <tr>
-                      <th>#</th>
-                      <th>Product Name</th>
-                      <th>Category</th>
-                      <th>Image</th>
-                      <th>Description</th>
-                      <th>Amount</th>
-                      <th>Action</th>
-                  </tr>
-              </thead>
-              <tbody id="productTableBody"></tbody>
-          </table>
       </div>
-    </main>
+
+      <h2 class="mt-5">Products</h2>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Image</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+      </table>
+  </div>
 
     <footer>
         <p>Copyright &copy; Lamla Gaming Store</p>
