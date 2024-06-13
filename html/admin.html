@@ -56,6 +56,49 @@
         <div class="row">
             <h2 class="row gap-2 justify-content-center">Admin</h2>
         </div>
+
+        <div class="container">
+          
+          <form id="productForm">
+              <div class="form-group">
+                  <label for="productName">Product Name</label>
+                  <input type="text" class="form-control" id="productName" required>
+              </div>
+              <div class="form-group">
+                  <label for="productCategory">Category</label>
+                  <input type="text" class="form-control" id="productCategory" required>
+              </div>
+              <div class="form-group">
+                  <label for="productImage">Image URL</label>
+                  <input type="url" class="form-control" id="productImage" required>
+              </div>
+              <div class="form-group">
+                  <label for="productDescription">Description</label>
+                  <textarea class="form-control" id="productDescription" required></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="productAmount">Amount</label>
+                  <input type="number" class="form-control" id="productAmount" required>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+          </form>
+  
+          <h2 class="mt-5">Products</h2>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Image</th>
+                      <th>Description</th>
+                      <th>Amount</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody id="productTableBody"></tbody>
+          </table>
+      </div>
     </main>
 
     <footer>

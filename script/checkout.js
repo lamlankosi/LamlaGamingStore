@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function purchaseItems() {
     if (checkOutItems.length > 0) {
         alert("Thank you for purchasing!");
-        clearCart();
+        
     } else {
         alert("Your cart is empty!");
     }
