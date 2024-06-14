@@ -219,3 +219,7 @@ button:hover {
 .addRemoveButton{
     gap: 3rem;
 }
+
+img [alt="aboutImages"]{
+    width: 1rem
+}
