@@ -98,3 +98,5 @@ let spinnerWrapper = document.querySelector('[spinner]');
 setTimeout(() => {
   spinnerWrapper.style.opacity = '0';
 }, 500);
+
+document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()

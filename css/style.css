@@ -274,3 +274,9 @@ img [alt="aboutImages"]{
     width: 1rem
 }
 
+@media(width <= 425){
+    #slideshow{
+        width: 10rem;
+    }
+}
+

@@ -108,6 +108,8 @@ setTimeout(() => {
   spinnerWrapper.style.opacity = '0';
 },500)
 
+document.querySelector('[currentYear]').textContent = new Date().getUTCFullYear()
+
 // let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
 //     ? JSON.parse(localStorage.getItem('checkout'))
 //     : []
