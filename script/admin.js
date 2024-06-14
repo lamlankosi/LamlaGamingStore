@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     try {
         let products = JSON.parse(localStorage.getItem('myProducts')) || [];
-        let productForm = document.querySelector('#productForm');
-        let productTableBody = document.querySelector('#productTableBody');
-        let productIdInput = document.querySelector('#productId');
+        let productForm = document.querySelector('[productForm]');
+        let productTableBody = document.querySelector('[productTableBody]');
+        let productIdInput = document.querySelector('[productId]');
 
         function displayProducts() {
             productTableBody.innerHTML = '';
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             let newProduct = {
                 id: productIdInput.value ? parseInt(productIdInput.value) : (products.length ? products[products.length - 1].id + 1 : 1),
-                productName: document.querySelector('#productName').value,
-                category: document.querySelector('#productCategory').value,
-                img_url: document.querySelector('#productImage').value,
-                description: document.querySelector('#productDescription').value,
-                amount: document.querySelector('#productAmount').value
+                productName: document.querySelector('[productName]').value,
+                category: document.querySelector('[productCategory]').value,
+                img_url: document.querySelector('[productImage]').value,
+                description: document.querySelector('[productDescription]').value,
+                amount: document.querySelector('[productAmount]').value
             };
 6
             if (productIdInput.value) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             localStorage.setItem('myProducts', JSON.stringify(products));
             displayProducts();
-            let modal = new bootstrap.Modal(document.querySelector('#productModal'));
+            let modal = new bootstrap.Modal(document.querySelector('[productModal]'));
             modal.hide();
             productForm.reset();
         }
@@ -60,13 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
             let product = products[index];
             if (product) {
                 productIdInput.value = product.id;
-                document.querySelector('#productName').value = product.productName;
-                document.querySelector('#productCategory').value = product.category;
-                document.querySelector('#productImage').value = product.img_url;
-                document.querySelector('#productDescription').value = product.description;
-                document.querySelector('#productAmount').value = product.amount;
+                document.querySelector('[productName]').value = product.productName;
+                document.querySelector('[productCategory]').value = product.category;
+                document.querySelector('[productImage]').value = product.img_url;
+                document.querySelector('[productDescription]').value = product.description;
+                document.querySelector('[productAmount]').value = product.amount;
 
-                let modal = new bootstrap.Modal(document.querySelector('#productModal'));
+                let modal = new bootstrap.Modal(document.querySelector('[productModal]'));
                 modal.show();
             } else {
                 throw new Error('Product not found for editing.');
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        document.querySelector('#sortCategoryButton').addEventListener('click', sortProductsByCategory);
+        document.querySelector('[sortCategoryButton]').addEventListener('click', sortProductsByCategory);
         
        
         productForm.addEventListener('submit', addProduct);
