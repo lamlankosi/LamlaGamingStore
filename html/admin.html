@@ -49,9 +49,27 @@
     </nav>
 </header>
 
+<div class="spinner-wrapper" spinner>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+<main class="container-fluid">
+    <div class="row">
+        <h1 class="row gap-2 justify-content-center">Admin Panel</h1>
+    </div>
+
 <div class="container">
-    <h1>Admin Panel</h1>
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Add New</button>
+
+    <div class="action-addSort" >
+        <button class="btn btn-secondary" id="sortCategoryButton">Sort by Category</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">Add New</button>
+
+    </div>
+    
 
     <!-- Product Modal -->
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
@@ -66,23 +84,23 @@
                         <input type="hidden" id="productId">
                         <div class="form-group">
                             <label for="productName">Product Name</label>
-                            <input type="text" class="form-control" id="productName" required>
+                            <input type="text" class="form-control" id="productName"  placeholder="Enter Product Name..." required>
                         </div>
                         <div class="form-group">
                             <label for="productCategory">Category</label>
-                            <input type="text" class="form-control" id="productCategory" required>
+                            <input type="text" class="form-control" id="productCategory" placeholder="Enter Category..." required>
                         </div>
                         <div class="form-group">
                             <label for="productImage">Image URL</label>
-                            <input type="url" class="form-control" id="productImage" required>
+                            <input type="url" class="form-control" id="productImage" placeholder="Enter Image URL.." required>
                         </div>
                         <div class="form-group">
                             <label for="productDescription">Description</label>
-                            <textarea class="form-control" id="productDescription" required></textarea>
+                            <textarea class="form-control" id="productDescription" placeholder="Enter Description..." required></textarea>
                         </div>
                         <div class="form-group">
                             <label for="productAmount">Amount</label>
-                            <input type="number" class="form-control" id="productAmount" required>
+                            <input type="number" class="form-control" id="productAmount" placeholder="Enter Amount..." required>
                         </div>
                         <button type="submit" class="btn btn-primary mt-3">Save Product</button>
                     </form>
@@ -107,8 +125,9 @@
         <tbody id="productTableBody"></tbody>
     </table>
 </div>
-
+</main>
 <footer>
+   <p><i class="bi bi-whatsapp"> </i><i class="bi bi-instagram"> </i><i class="bi bi-facebook"></i></p>
     <p>Copyright &copy; Lamla Gaming Store</p>
 </footer>
 

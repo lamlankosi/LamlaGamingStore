@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td>${product.description}</td>
                         <td>R${product.amount}.00</td>
                         <td>
-                            <div class="addRemoveButton">
-                                <button class="btn bg-success" data-index="${index}" data-action="edit">Edit</button>
-                                <button class="btn bg-danger" data-index="${index}" data-action="remove">Remove</button>
+                            <div class="action-buttons">
+                                <button class="edit-button" data-index="${index}" data-action="edit"><i class="bi bi-pencil-fill"></i></button>
+                                <button class="delete-button" data-index="${index}" data-action="remove"><i class="bi bi-trash3"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: document.querySelector('#productDescription').value,
                 amount: document.querySelector('#productAmount').value
             };
-
+6
             if (productIdInput.value) {
                 let index = products.findIndex(p => p.id === parseInt(productIdInput.value));
                 if (index !== -1) {
@@ -73,6 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+                function sortProductsByCategory() {
+            products.sort((a, b) => a.category.localeCompare(b.category));
+            displayProducts();
+
+         }
         function removeProduct(index) {
             if (index >= 0 && index < products.length) {
                 products.splice(index, 1);
@@ -96,7 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-
+        
+        document.querySelector('#sortCategoryButton').addEventListener('click', sortProductsByCategory);
+        
        
         productForm.addEventListener('submit', addProduct);
 
@@ -106,3 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
     }
 });
+
+
+
+
+let spinnerWrapper = document.querySelector('[spinner]');
+setTimeout(() => {
+  spinnerWrapper.style.opacity = '0';
+},500)
+

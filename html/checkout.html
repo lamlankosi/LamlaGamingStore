@@ -53,6 +53,15 @@
             </nav>
     </header>
 
+    <div class="spinner-wrapper" spinner>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+
     <main class="container-fluid">
         <div class="row">
             <h2 class="row gap-2 justify-content-center">Checkout</h2>
@@ -75,8 +84,8 @@
                       <tbody cartTableBody></tbody>
                       </table>
                         <div class="d-flex justify-content-between" >
-                          <button class="btn btn-danger" onclick="clearCart()" id="clear">Clear Cart</button>
-                          <button class="btn btn-success" onclick="purchaseItems()" id="buy">Purchase</button>
+                          <button class="btn btn-danger" onclick="clearCart()" id="clear"><i class="bi bi-cart-dash"></i></button>
+                          <button class="btn btn-success" onclick="purchaseItems()" id="buy"><i class="bi bi-cart-check"></i></button>
                           
                         </div>
                         <div class="prices">
@@ -97,6 +106,7 @@
     </main>
 
     <footer>
+      <p><i class="bi bi-whatsapp"> </i><i class="bi bi-instagram"> </i><i class="bi bi-facebook"></i></p>
         <p>Copyright &copy; Lamla Gaming Store</p>
         
     </footer>

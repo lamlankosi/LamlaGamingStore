@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <input type="number" min="1" value="${product.quantity}" onchange="updateQuantity(${index}, this.value)">
                         </td>
                         <td>R${productTotalPrice}.00</td>
-                        <td><button class="btn btn-danger" onclick="removeFromCart(${index})">Remove</button></td>
+                        <td><button class="btn btn-danger" onclick="removeFromCart(${index})"><i class="bi bi-x-lg"></i></button></td>
                     </tr>
                 `;
             }
@@ -68,3 +68,8 @@ function purchaseItems() {
         alert("Your cart is empty!");
     }
 }
+
+let spinnerWrapper = document.querySelector('[spinner]');
+setTimeout(() => {
+  spinnerWrapper.style.opacity = '0';
+},500)

@@ -14,7 +14,7 @@ try {
                         <h5 class="card-title">${product.productName}</h5>
                         <p class="card-text">${product.description}</p>
                         <p class="card-text">R${product.amount}.00</p>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</a>
+                        <a href="#" class="btn btn-primary" onclick="addToCart(${product.id})"><i class="bi bi-cart"></i></a>
                     </div>
                 </div>`;
         });
@@ -25,14 +25,17 @@ try {
     // Function to filter products
     function filterProducts() {
         let searchInput = document.querySelector('[searchInput]').value.toLowerCase();
+        let categoryFilter = document.getElementById('categoryDropdown').value;
         let filteredProducts = products.filter(product => 
-            product.productName.toLowerCase().includes(searchInput)
+            product.productName.toLowerCase().includes(searchInput) &&
+            (categoryFilter === '' || product.category === categoryFilter)
         );
         displayProducts(filteredProducts);
     }
 
     // Event listener for search input
     document.getElementById('input').addEventListener('input', filterProducts);
+    document.getElementById('categoryDropdown').addEventListener('change', filterProducts);
 
     // Function to add product to cart
     function addToCart(productId) {
@@ -52,11 +55,27 @@ try {
 
     window.onload = () => {
         document.querySelector('[counter]').textContent = checkOutItems.length || 0;
+
+        // Populate category dropdown
+        let categoryDropdown = document.getElementById('categoryDropdown');
+        let uniqueCategories = [...new Set(products.map(product => product.category))];
+        uniqueCategories.forEach(category => {
+            let option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categoryDropdown.appendChild(option);
+        });
     };
 
     // Event listener for sorting products
-    document.getElementById('sortButton').addEventListener('click', function() {
-        let sortedProducts = products.sort((a, b) => a.category.localeCompare(b.category));
+    document.getElementById('sortDropdown').addEventListener('change', function() {
+        let sortValue = this.value;
+        let sortedProducts = [...products];
+        if (sortValue === 'price') {
+            sortedProducts.sort((a, b) => a.amount - b.amount);
+        } else if (sortValue === 'name') {
+            sortedProducts.sort((a, b) => a.productName.localeCompare(b.productName));
+        }
         displayProducts(sortedProducts);
     });
 
@@ -74,3 +93,8 @@ try {
 } catch (e) {
     console.log('please contact our administrator', e);
 }
+
+let spinnerWrapper = document.querySelector('[spinner]');
+setTimeout(() => {
+  spinnerWrapper.style.opacity = '0';
+}, 500);
