@@ -100,3 +100,9 @@ let myProducts =
 let checkoutItems = JSON.parse(localStorage.getItem('checkout'))
     ? JSON.parse(localStorage.getItem('checkout'))
     : []
+
+  
+let spinnerWrapper = document.querySelector('[spinner]');
+setTimeout(() => {
+  spinnerWrapper.style.opacity = '0';
+},500)

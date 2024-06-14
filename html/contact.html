@@ -51,6 +51,14 @@
             </nav>
     </header>
 
+    <div class="spinner-wrapper" spinner>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+
     <main class="container-fluid">
         <div class="row">
             <h2 class="row gap-2 justify-content-center">Contact</h2>
@@ -71,8 +79,6 @@
       
               <button type="submit">Send</button>
               </form>
-  
-          
           </div>
 
           
@@ -83,6 +89,7 @@
     </main>
 
     <footer>
+      <p><i class="bi bi-whatsapp"> </i><i class="bi bi-instagram"> </i><i class="bi bi-facebook"></i></p>
         <p>Copyright &copy; Lamla Gaming Store</p>
         
     </footer>
@@ -91,6 +98,12 @@
     
     <!-- javascript -->
     <script>
+
+let spinnerWrapper = document.querySelector('[spinner]');
+        setTimeout(() => {
+          spinnerWrapper.style.opacity = '0';
+        },500) 
+
       var form = document.getElementById("my-form");
   
       async function handleSubmit(event) {
@@ -121,6 +134,9 @@
         });
       }
       form.addEventListener("submit", handleSubmit)
+
+      
+         
     </script>
     
 </body>
