@@ -269,3 +269,7 @@ button:hover {
     width: 15rem;
 }
 
+img [alt="aboutImages"]{
+    width: 1rem
+}
+
