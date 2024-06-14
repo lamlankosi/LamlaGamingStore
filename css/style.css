@@ -246,8 +246,9 @@ button:hover {
     color: white;
 }
 
-#productModal{
+.modal-content{
     background-color: blue;
+    
 }
 
 .action-addSort {
